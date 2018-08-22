@@ -51,9 +51,7 @@ $(function() {
     return false
   })
 
-  $(
-    '#appSettingForm, #secSettingForm, #mailSettingForm, #awsSettingForm, #authSettingForm, #googleSettingForm, #githubSettingForm',
-  ).each(function() {
+  $('#appSettingForm, #secSettingForm, #mailSettingForm, #awsSettingForm, #googleSettingForm, #githubSettingForm').each(function() {
     $(this).submit(function() {
       function showMessage(formId, msg, status) {
         $('#' + formId + ' .alert').remove()
@@ -83,7 +81,7 @@ $(function() {
       $button.attr('disabled', 'disabled')
       $.post($form.attr('action'), $form.serialize(), function(data) {
         if (data.status) {
-          showMessage($id, '更新しました')
+          showMessage($id, 'Updated')
         } else {
           showMessage($id, data.message, 'danger')
         }
